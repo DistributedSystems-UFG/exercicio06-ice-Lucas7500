@@ -34,10 +34,7 @@ public class Server {
         try (Communicator communicator = Util.initialize(args)) {
             ObjectAdapter adapter = communicator.createObjectAdapterWithEndpoints("SimpleAdapter", "default -p 11000");
             
-            // Objeto 1: Printer
             adapter.add(new PrinterI(), Util.stringToIdentity("SimplePrinter"));
-            
-            // Objeto 2: Calculator
             adapter.add(new CalculatorI(), Util.stringToIdentity("SimpleCalculator"));
             
             adapter.activate();
